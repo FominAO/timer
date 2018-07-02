@@ -1,0 +1,26 @@
+body {
+  font-size: 180px;
+  font-family: Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.days-box, .hours-box, .minutes-box, .seconds-box, .hours-count, .days-count, .minutes-count, .seconds-count {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.hours-count, .days-count, .minutes-count, .seconds-count {
+  position: absolute;
+  height: 140px;
+  width: 140px; }
+
+.timer {
+  width: 100%;
+  height: auto;
+  display: flex; }
+
+#circle-days, #circle-hours, #circle-minutes, #circle-seconds {
+  transform: translateY(500px) rotate(-90deg) scaleY(-1) translateY(-500px);
+  stroke-dasharray: 1319, 1319;
+  transition: 500ms; }

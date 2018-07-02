@@ -1,0 +1,44 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Timer</title>
+	<style>
+body {
+  font-size: 180px;
+  font-family: Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.days-box, .hours-box, .minutes-box, .seconds-box, .hours-count, .days-count, .minutes-count, .seconds-count {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.hours-count, .days-count, .minutes-count, .seconds-count {
+  position: absolute;
+  height: 140px;
+  width: 140px; }
+
+.timer {
+  width: 100%;
+  height: auto;
+  display: flex; }
+
+#circle-days, #circle-hours, #circle-minutes, #circle-seconds {
+  transform: translateY(500px) rotate(-90deg) scaleY(-1) translateY(-500px);
+  stroke-dasharray: 1319, 1319;
+  transition: 500ms; }
+	</style>
+</head>
+<body>
+		<div class="container">
+
+		</div>
+<script type="text/javascript">
+!function(e){var t={};function n(r){if(t[r])return t[r].exports;var i=t[r]={i:r,l:!1,exports:{}};return e[r].call(i.exports,i,i.exports,n),i.l=!0,i.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var i in e)n.d(r,i,function(t){return e[t]}.bind(null,i));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}({0:function(e,t,n){"use strict";n.r(t);n(5);new class{constructor(e){this.circle='<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" style="width: 300px; height: 300px;"><circle id="circle" cx="250" cy="250" r="210" fill="none" stroke="#000" stroke-width="8"/></svg>',this.goal=e,this.timerId=0,this.data={days:0,hours:0,minutes:0,seconds:0}}timer(){let e=new Date,t=this.goal-+e,n=Math.round(+t/1e3),r=Math.round((n+30)/60),i=Math.round((r+30)/60),o=Math.round((i+12)/24);return n%=60,r%=60,i%=24,this.data={days:o,hours:i,minutes:r,seconds:n},this.data}render(){const e=document.createElement("div");e.className="timer";for(let t in this.data){let n=document.createElement("div");n.className=t+"-box",n.innerHTML=this.circle+'<span class="'+t+'-count">'+this.data[t]+"</span>",n.getElementsByTagName("circle")[0].id+="-"+t,e.appendChild(n)}document.getElementsByClassName("container")[0].appendChild(e)}tick(){let e=this.timer(),t=document.querySelectorAll("[class$=-count]"),n=document.getElementsByTagName("circle");var r=0;for(let i in e)t[r].innerHTML!=e[i]&&(t[r].innerHTML=e[i],n[r].style.strokeDasharray="hours"==i?1319-Math.round(54.96*e[i])+", 1319":1319-Math.round(21.87*e[i])+", 1319"),r++}start(){this.render(),this.timerId=setInterval(function(e,t){return function(){return e.apply(t,arguments)}}(this.tick,this),1e3)}stop(){clearInterval(this.timerId)}}(1531303096280).start()},5:function(e,t){}});
+</script>
+</body>
+</html>
